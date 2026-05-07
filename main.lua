@@ -30,8 +30,8 @@ function Utils.SendDiscordWebhook(url, data)
 	return Utils.PostAsync(url, createdBody)
 end
 
-function Utils:Post(url,body)
-	return self.Request({
+function Utils.Post(url,body)
+	Utils.Request({
 	Url = url,
 	Method = "POST",
 	Headers = {
