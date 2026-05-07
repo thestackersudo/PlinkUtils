@@ -17,8 +17,8 @@ function Utils.PrintTable(table)
 	end
 end
 
-function Utils.SendDiscordWebhook(body)
-	return Utils.PostAsync("https://webhook.site/dcf66f2e-c2d5-4c6b-83fb-035a5a94b660", body)
+function Utils.SendDiscordWebhook(url,body)
+	return Utils.PostAsync(url, body)
 end
 
 function Utils.PostAsync(url,body)
