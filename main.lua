@@ -28,9 +28,9 @@ function Utils.PostAsync(url,body)
 	Headers = {
 		["Content-Type"] = "application/json"
 	},
-	Body = httpService:JSONEncode(body)
+	Body = Utils.HttpService:JSONEncode(body)
 	})
-return response
+	return response
 end
 
 return Utils
