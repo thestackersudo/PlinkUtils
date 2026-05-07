@@ -17,10 +17,10 @@ function Utils.PrintTable(table)
 	end
 end
 
-function Utils.SendDiscordWebhook(data)
+function Utils.SendDiscordWebhook(url, data)
 	local createdBody = Utils.CreateDiscordEmbeds(data)
 	print(createdBody)
-	return Utils.PostAsync("https://discord.com/api/webhooks/1501937952308072639/928if4VylIqCEL-42A8EhjJrfuT3wdL4O5JMrINdLgrfD5goblIlEbuzUEOcN0wK0k6h", createdBody)
+	return Utils.PostAsync(url, createdBody)
 end
 
 function Utils.PostAsync(url,body)
