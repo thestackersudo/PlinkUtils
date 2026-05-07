@@ -5,7 +5,15 @@ Utils.ReplicatedStorage = game:GetService("ReplicatedStorage")
 Utils.Players = game:GetService("Players")
 Utils.VirtualUser = game:GetService("VirtualUser")
 Utils.HttpService = game:GetService("HttpService")
+Utils.Request = 
+	request
+	or http_request
 
+if not Utils.Request then
+	Utils.Request = function(data)
+		return HttpService:RequestAsync(data)
+	end
+end
 
 function Utils.RemoveSpaces(text)
 	return text:gsub(" ", "")
@@ -19,12 +27,11 @@ end
 
 function Utils.SendDiscordWebhook(url, data)
 	local createdBody = Utils.CreateDiscordEmbeds(data)
-	print(createdBody)
 	return Utils.PostAsync(url, createdBody)
 end
 
-function Utils.PostAsync(url,body)
-	local response = request({
+function Utils:Post(url,body)
+	return self.Request({
 	Url = url,
 	Method = "POST",
 	Headers = {
@@ -32,7 +39,6 @@ function Utils.PostAsync(url,body)
 	},
 	Body = body
 	})
-	return response
 end
 
 function Utils.CreateDiscordEmbeds(data)
