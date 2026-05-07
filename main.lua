@@ -4,6 +4,8 @@ Utils.Workspace = game:GetService("Workspace")
 Utils.ReplicatedStorage = game:GetService("ReplicatedStorage")
 if Utils.ReplicatedStorage.BridgeNet then
 	Utils.WFDataRemote = Utils.ReplicatedStorage.BridgeNet.dataRemoteEvent
+else
+	continue
 end
 Utils.Players = game:GetService("Players")
 Utils.VirtualUser = game:GetService("VirtualUser")
