@@ -2,29 +2,10 @@ local Utils = {}
 
 Utils.Workspace = game:GetService("Workspace")
 Utils.ReplicatedStorage = game:GetService("ReplicatedStorage")
-if Utils.ReplicatedStorage.BridgeNet then
-	Utils.WFDataRemote = Utils.ReplicatedStorage.BridgeNet.dataRemoteEvent
-else
-	continue
-end
 Utils.Players = game:GetService("Players")
 Utils.VirtualUser = game:GetService("VirtualUser")
 Utils.HttpService = game:GetService("HttpService")
 
-
-function Utils.BuildArgs(pathTable, nValue)
-	local data = {}
-
-	for i,value in ipairs(pathTable) do
-		data[i] = value
-	end
-
-	if nValue ~= nil then
-		data.n = nValue
-	end	
-
-	return { data, "\002" }
-end
 
 function Utils.RemoveSpaces(text)
 	return text:gsub(" ", "")
